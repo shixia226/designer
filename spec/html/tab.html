@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>选项卡</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../cmps/themes/favicon.ico" media="screen" />
+    <link rel="stylesheet" href="eui.css" />
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script src="eui.js"></script>
+<script>
+    EUI.getCmp("tab", {
+        closable: true,
+        fixedcount: 1,
+        style: "ui-tab-default",
+        handlers: {
+            EVT_ON_SWITCH_AFTER: function(idx) {
+                this.style(idx === 2 ? 'ui-tab-gray' : 'ui-tab-default');
+            }
+        },
+        items: [{
+            content: '123'
+        }, {
+            icon: "icon_refresh",
+            content: 'http://www.baidu.com'
+        }, {
+            icon: "icon_save"
+        }]
+    }, function () {
+        window.tab = this;
+    });
+
+</script>
+
+</html>

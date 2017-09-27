@@ -1,0 +1,14 @@
+.ui-card {
+    width: 100%;
+    height: 100%;
+
+    .ui-card-item {
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+
+    .ui-card-active {
+        display: block;
+    }
+}

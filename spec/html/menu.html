@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>菜单</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../cmps/themes/favicon.ico" media="screen" />
+    <link rel="stylesheet" href="eui.css" />
+</head>
+
+<body>
+</body>
+<script src="eui.js"></script>
+<script>
+    EUI.getCmp("menu", {
+        bindevent: false,
+        items: [{
+            icon: "icon_refresh",
+            onclick: {
+                handler: function (menu, tip) {
+                    alert(tip);
+                },
+                args: 'OK'
+            }
+        }, { enabled: false }, {}, { space: true }, {
+            items: [{
+                enablechecked: true,
+                group: {
+                    name: "oo",
+                    nullable: true
+                },
+                onclick: function() {
+                    alert("Sub Menu");
+                }
+            }, { enablechecked: true, group: "oo" }]
+        }, {}, {}]
+    }, function () {
+        EUI.bind(document.body, [{
+            type: "contextmenu",
+            data: this,
+            handler: function (evt) {
+                evt.data.show(evt.pageX, evt.pageY, null, evt.pageY);
+                return false;
+            }
+        }, {
+            type: "mousemove",
+            data: this,
+            handler: function (evt) {
+                var menu = evt.data;
+                if (EUI.isAncestor(menu.elem(), evt.target)) {
+                    menu.trigger("mousemove", evt);
+                } else {
+                    evt.relatedTarget = evt.target;
+                    menu.trigger("mouseleave", evt);
+                }
+            }
+        }, {
+            type: "mouseup",
+            data: this,
+            handler: function (evt) {
+                var menu = evt.data;
+                if (EUI.isAncestor(menu.elem(), evt.target)) {
+                    menu.trigger("mouseup", evt);
+                }
+            }
+        }]);
+
+        window.menu = this;
+    })
+
+</script>
+
+</html>

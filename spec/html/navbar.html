@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../cmps/themes/favicon.ico" media="screen" />
+    <link rel="stylesheet" href="eui.css" />
+    <style>
+        .infomation {
+            background: url(images/Information.png);
+        }
+
+        .phone {
+            background: url(images/phone.png);
+        }
+
+        .share {
+            background: url(images/share.png);
+        }
+    </style>
+</head>
+
+<body style="padding-top: 120px;">
+    <div id="guide" style="height: 120px; margin-top: -120px"></div>
+    <div id="card" style="height: 100%;"></div>
+</body>
+<script src="eui.js"></script>
+<script>
+    EUI.getCmp("card", {
+        pelem: '#card',
+        width: "500px",
+        height: 300,
+        items: [{
+            content: "文本"
+        }, {
+            content: "http://www.baidu.com"
+        }, {
+            content: "最后一页"
+        }]
+    }, function () {
+        EUI.getCmp("menu", {
+            items: [{
+                text: "上一页",
+                onclick: {
+                    handler: function (menu, card) {
+                        card.prevActive();
+                    },
+                    args: this
+                }
+            }, {
+                text: "下一页",
+                onclick: {
+                    handler: function (menu, card) {
+                        card.nextActive();
+                    },
+                    args: this
+                }
+            }]
+        }, function () {
+            EUI.bind(document.body, "contextmenu", this, function (evt) {
+                evt.data.show(evt.pageX, evt.pageY);
+            })
+        });
+        EUI.getCmp("navbar", {
+            pelem: '#guide',
+            style: "ui-navbar-default",
+            items: [{
+                text: "呼叫",
+                icon: "infomation"
+            }, {
+                text: "分享",
+                icon: "phone"
+            }, {
+                text: "二维码",
+                icon: "share"
+            }],
+            handlers: {
+                EVT_ON_SWITCH_AFTER: {
+                    handler: function (idx, oidx, force, card) {
+                        if (force) card.active(idx);
+                    },
+                    args: this
+                }
+            }
+        }, function () {
+            this.active(0);
+        });
+    });
+    EUI.getCmp("navbar", {
+        pelem: '#guide',
+        style: "ui-navbar-line",
+        items: [{
+            icon: "icon_refresh",
+            text: "呼叫"
+        }, {
+            icon: "icon_new",
+            text: "分享"
+        }, {
+            icon: "icon_save",
+            text: "二维码"
+        }]
+    }, function () {
+        this.active(1);
+        window.nav = this;
+    });
+
+</script>
+
+</html>

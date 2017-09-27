@@ -1,0 +1,25 @@
+$height_panel_header: 20px;
+
+.ui-accordion {
+    border: 1px solid #d4d4d4;
+
+    .ui-accordion-panel {
+        padding-top: $height_panel_header - 1;
+
+        .ui-accordion-header {
+            height: $height_panel_header;
+            line-height: 14px;
+            background: -moz-linear-gradient(top, #fefefe, #ededed);
+            background: -webkit-gradient(linear, left top, left bottom, from(#fefefe), to(#ededed));
+            color: #666666;
+            border-width: 1px 0;
+            border-style: solid;
+            border-color: #d4d4d4;
+            margin-top: -$height_panel_header;
+        }
+
+        .ui-accordion-content {
+            border: none;
+        }
+    }
+}

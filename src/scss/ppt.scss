@@ -1,0 +1,111 @@
+$width_name: 80px;
+$border: 1px solid #ECE9D8;
+.ui-ppt {
+    overflow: auto;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 100%;
+	height: 100%;
+	border: $border;
+	padding: 0;
+
+    .ui-ppt-item {
+		height: 21px;
+		list-style-type: none;
+		padding-left: $width_name;
+
+        .ui-ppt-text {
+            padding-left: 17px;
+            border-bottom: $border;
+            border-right: $border;
+            overflow: hidden;
+			text-overflow: ellipsis;
+			line-height: 18px;
+			vertical-align: middle;
+			display: inline-block;
+			width: $width_name;
+			margin-left: -$width_name;
+            height: 100%;
+        }
+
+        .ui-ppt-value {
+            padding: 0 3px;
+            border-bottom: 1px solid #ECE9D8;
+            color: #666666;
+            overflow: hidden;
+			text-overflow: ellipsis;
+			line-height: 18px;
+			vertical-align: middle;
+			display: inline-block;
+			width: 100%;
+            height: 100%;
+        }
+    }
+
+    .ui-ppt-group {
+        background: #FAFAFA;
+        cursor: default;
+        border-bottom: $border;
+        height: 20px;
+		vertical-align: middle;
+		list-style-type: none;
+		padding-left: 17px;
+		line-height: 18px;
+		cursor: pointer;
+
+		&:before {
+			content: '+';
+			margin-left: -14px;
+			width: 12px;
+			margin-right: 2px;
+			display: inline-block;
+			font-weight: bold;
+			font-size: 16px;
+			cursor: pointer;
+		}
+	}
+	.ui-ppt-group-expand:before {
+		content: '-';
+	}
+}
+
+.ui-ppt-switch {
+    width: 36px;
+    height: 18px;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+    background: #DDDDDD;
+    margin: auto;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-ppt-switch:after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 1px solid #AAAAAA;
+    border-radius: 50%;
+    background: #FFFFFF;
+    float: left;
+    margin: -1px;
+}
+
+.ui-ppt-switch-checked {
+    background: #8ce196;
+}
+
+.ui-ppt-switch-checked:after {
+    float: right;
+}
+
+.ui-ppt .font-icon-minus-dash,
+.ui-ppt .font-icon-plus-dash {
+    cursor: pointer;
+    vertical-align: top;
+}

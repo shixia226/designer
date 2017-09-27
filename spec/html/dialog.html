@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>测试对话框</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../cmps/themes/favicon.ico" media="screen" />
+    <link rel="stylesheet" href="eui.css" />
+</head>
+
+<body>
+</body>
+<script src="eui.js"></script>
+<script>
+    EUI.getCmp("dialog", {
+        miniBtns: ["max", {
+            cls: "icon_save",
+            hint: "弹框",
+            handler: function () {
+                EUI.alert("msg")
+            }
+        }, "close"],
+        icon: "icon_new",
+        content: "<p>This is My Dialog.</p>",
+        btns: [
+            function () {
+                alert('关闭对话框.');
+            },
+            'hide',
+            {
+                text: '帮助',
+                onclick: function () {
+                    EUI.getCmp('dialog.help', {
+                        width: 200,
+                        height: 120,
+                        caption: 'Help',
+                        content: '...',
+                        btns: ['']
+                    }, function () {
+                        this.show(true)
+                    });
+                    return false;
+                }
+            }
+        ]
+    }, function () {
+        this.show(true);
+        window.dialog = this;
+    });
+
+</script>
+
+</html>

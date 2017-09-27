@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>浮层</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../cmps/themes/favicon.ico" media="screen" />
+    <link rel="stylesheet" href="eui.css" />
+    <style>
+        .no-shadow::before{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<script src="eui.js"></script>
+<script>
+    function cloneToast(cls, left, top) {
+        var elem = EUI.query(cls).parentNode.parentNode;
+        document.body.appendChild(elem = elem.cloneNode(true));
+        EUI.addClass(elem, 'no-shadow');
+        EUI.query('.ui-content', elem).style.cssText += '; left: ' + left + 'px; top: ' + top + 'px;';
+    }
+    EUI.toast('Success.', 'success', -1);
+    cloneToast('.ui-icon-success', 200, 200);
+    EUI.toast('Warning.', 'warn', -1);
+    cloneToast('.ui-icon-warn', 400, 200);
+    EUI.toast('Fail to save.', 'fail', -1);
+    cloneToast('.ui-icon-fail', 600, 200);
+    EUI.toast(['loading.', 'loading..', 'loading...'], 'load', 500, 'width: 180px');
+
+</script>
+
+</html>

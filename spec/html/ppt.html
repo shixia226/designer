@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>属性编辑面板</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../cmps/themes/favicon.ico" media="screen" />
+    <link rel="stylesheet" href="eui.css" />
+</head>
+
+<body>
+</body>
+<script src="eui.js"></script>
+<script>
+    EUI.getCmp("ppt", {
+        items: [{
+            name: "width",
+            text: "宽度",
+            type: "size",
+            value: "200",
+            onchange: setWidth
+        }, {
+            name: "height",
+            text: "高度",
+            type: "size",
+            value: 20,
+            onchange: setHeight
+        }, {
+            group: true,
+            name: "evt",
+            cls_text: "color:blue",
+            text: "事件"
+        }, {
+            name: "key",
+            text: "键盘事件",
+            group: "evt"
+        }, {
+            name: "click",
+            text: "点击事件",
+            type: "textarea",
+            cls_value: "; text-decoration: underline;",
+            group: "evt"
+        }, {
+            group: true,
+            name: "stl",
+            text: "样式"
+        }, {
+            name: "bordercolor",
+            text: "边框颜色",
+            type: "radio",
+            options: [
+                {
+                    name: "灰色", value: "#CCC"
+                },
+                {
+                    name: "蓝色", value: "blue"
+                }
+            ],
+            value: "#CCC",
+            onchange: setBorderColor,
+            group: "stl"
+        }, {
+            name: "openstl",
+            text: "边框宽度",
+            type: "select",
+            options: {
+                "0px": "无",
+                "1px": "细",
+                "2px": "中",
+                "3px": "粗"
+            },
+            value: "1px",
+            onchange: setBorderSize,
+            group: "stl"
+        }, {
+            name: "color",
+            text: "颜色",
+            type: "color",
+            value: "black",
+            group: "stl",
+            onchange: setTextColor
+        }, {
+            name: "bgcolor",
+            text: "背景颜色",
+            type: "link",
+            value: "#FFFFFF",
+            group: "stl",
+            onclick: showDialog
+        }, {
+            name: 'advance',
+            text: "高级",
+            type: 'switch',
+            value: false,
+            onchange: function(visible) {
+                this.visible(visible, 'advance-text');
+            }
+        }, {
+            name: 'advance-text',
+            text: '文案',
+            visible: false,
+            value: 'Test Ppt Component',
+            onchange: function(value) {
+                getDom().innerHTML = value;
+            }
+        }]
+    }, function () {
+        this.elem().style.cssText += "; width: 200px; height: 500px; margin: 100px";
+        this.value("click", "function(){}");
+        this.remove("key");
+        this.on("EVT_ON_CHANGE", function (value, orivalue, name) {
+            if (name === "bgcolor") {
+                getDom().style.background = value;
+            }
+        });
+        window.ppt = this;
+    });
+
+    var dom = document.body.appendChild(document.createElement("div"));
+    dom.style.cssText += '; position: absolute; left: 400px; top: 200px; width: 100px; height: 20px; border: 1px solid #999;'
+    function getDom() {
+        return dom;
+    }
+    function setWidth(w) {
+        getDom().style.width = w;
+    }
+    function setHeight(h) {
+        getDom().style.height = h;
+    }
+    function setBorderColor(color) {
+        getDom().style.borderColor = color;
+    }
+    function setBorderSize(size) {
+        getDom().style.borderWidth = size;
+    }
+    function setTextColor(color) {
+        getDom().style.color = color;
+    }
+    function _dlg_init(editor, value) {
+        this.property('inp').value = value;
+        this.property('editor', editor);
+        this.show(true);
+    }
+    function showDialog(editor, value) {
+        EUI.getCmp("dialog.bgcolor", {
+            text: "设置背景颜色",
+            miniBtns: ["close"],
+            btns: [{
+                text: "确定",
+                onclick: function () {
+                    this.property('editor').value(this.property('inp').value);
+                }
+            }],
+            content: function (elem) {
+                this.property('inp', elem.appendChild(this.doc.createElement("input")));
+            }
+        }, { handler: _dlg_init, args: [editor, value] });
+    }
+    function showAdvance() {
+
+    }
+</script>
+
+</html>

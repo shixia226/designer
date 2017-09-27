@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>工具栏</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../cmps/themes/favicon.ico" media="screen" />
+    <link rel="stylesheet" href="eui.css" />
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script src="eui.js"></script>
+<script>
+    EUI.getCmp("toolbar", {
+        items: [{
+            name: "dropdown",
+            icon: "ui-icon-max",
+            items: [{
+                name: "menu-save",
+                caption: EUI.i18n("widget.toolbar.save", "保存"),
+                onclick: function() {
+                    alert('OK')
+                }
+            }]
+        }, {
+            name: "new",
+            hint: '新建',
+            icon: "ui-icon-max"
+        }, {
+            name: "save",
+            icon: "ui-icon-max",
+            hint: EUI.i18n("widget.toolbar.save", "保存"),
+            onclick: function () {
+                alert("保存")
+            }
+        }, {
+            name: "saveAs",
+            icon: "ui-icon-max",
+            hint: EUI.i18n("widget.toolbar.saveas", "另存为"),
+            onclick: "saveAs"
+        }, {
+            space: true
+        }, {
+            name: "preview",
+            icon: "ui-icon-max",
+            hint: EUI.i18n("widget.toolbar.preview", "预览"),
+            enable: false,
+            onclick: function (designer) {
+            }
+        }]
+    }, function () {
+        window.toolbar = this;
+    });
+
+</script>
+
+</html>

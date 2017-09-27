@@ -1,0 +1,67 @@
+$color_menu_bg: #718BB7;
+$color_item_border: #99BBE5;
+
+.ui-menu {
+    position: absolute;
+    padding: 2px 0;
+    border: 1px solid $color_menu_bg;
+    background: #F0F0F0 url("image/menu_bg.gif") left repeat-y;
+    cursor: default;
+    margin: 0;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+
+    > .ui-menu-space {
+        height: 6px;
+        background: url("image/menu_line.gif") center repeat-x;
+        font-size: 0;
+        margin: 0 2px 0 26px;
+    }
+
+    > .ui-menu-item {
+        margin: 0 3px;
+        padding: 3px 1px;
+        border: 1px solid transparent;
+        line-height: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: normal;
+        word-break: keep-all;
+        list-style: none;
+        vertical-align: middle;
+
+        > .ui-icon-checked:before {
+            content: '√';
+            font-weight: bold;
+            text-shadow: 1px 0 0;
+        }
+
+        > .ui-menu-text {
+            vertical-align: middle;
+            margin: 0 26px 0 8px;
+        }
+    }
+
+    > .ui-menu-item-arrow:after {
+        content: '';
+        border-width: 5px 0 5px 5px;
+        border-style: solid;
+        border-color: transparent transparent transparent rgba(0,0,0,.6);
+        position: absolute;
+        right: 10px;
+        margin-top: 5px;
+    }
+
+    > .ui-menu-item-hover {
+        border-color: $color_item_border;
+        border-radius: 3px;
+    }
+
+    > .ui-menu-item-disabled {
+        cursor: no-drop;
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>面板</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../cmps/themes/favicon.ico" media="screen" />
+    <link rel="stylesheet" href="eui.css" />
+    <style>
+        .ui-icon-info {
+            background: url("images/titleicon.png") no-repeat 0 -2px;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+<script src="eui.js"></script>
+<script>
+    EUI.getCmp("panel", {
+        miniBtns : [ "collapse" ],
+        caption : "武汉前端技术软件有限公司"
+    }, function () {
+        this.elem().style.cssText += '; position: absolute; left: 300px; top: 200px;';
+        this.width(500);
+        this.height(200);
+        window.panel = this;
+    });
+
+    EUI.getCmp("accordion", {
+        items : [ { caption : "面板1" }, {}, {}, {} ]
+    }, function () {
+        this.elem().style.cssText += '; position: absolute; left: 900px; top: 50px;';
+        this.width(200);
+        this.height(300);
+        this.layout(false);
+    });
+</script>
+</html>

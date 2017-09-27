@@ -1,0 +1,64 @@
+$height_panel_header: 26px;
+$color_panel_header_bg: #51688E;
+
+.ui-panel {
+    padding-top: $height_panel_header;
+
+    .ui-panel-header {
+        position: relative;
+        height: $height_panel_header;
+        line-height: 22px;
+        vertical-align: middle;
+        background: $color_panel_header_bg;
+        color: #FFFFFF;
+        font-weight: bolder;
+        white-space: nowrap;
+        word-wrap: normal;
+        word-break: keep-all;
+        margin-top: -$height_panel_header;
+        padding: 2px 8px;
+        cursor: default;
+        user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: -moz-none;
+        -webkit-user-select: none;
+
+        .ui-panel-icon {
+            margin: -3px 6px 0 0;
+        }
+
+        .ui-panel-caption {}
+
+        .ui-panel-btns {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -8px;
+            height: 16px;
+            line-height: 0;
+            padding: 0 5px;
+            font-weight: normal;
+            white-space: nowrap;
+            word-wrap: normal;
+            word-break: keep-all;
+
+            .ui-panel-btn {
+                cursor: pointer;
+                margin: 0 1px;
+                border: 1px solid transparent;
+                vertical-align: middle;
+                line-height: 12px;
+            }
+
+            .ui-panel-btn-hover {
+                border: 1px solid #CCCCCC;
+            }
+        }
+    }
+
+    .ui-panel-content {
+        border: 1px solid #e5e5e5;
+        width: 100%;
+        height: 100%;
+    }
+}

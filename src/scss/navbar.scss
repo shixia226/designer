@@ -1,0 +1,93 @@
+.ui-navbar {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+
+    .ui-navbar-item {
+        font-size: 12px;
+        margin-right: 5px;
+        font-weight: normal;
+        list-style: none;
+        display: inline-block;
+        cursor: pointer;
+        user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: -moz-none;
+        -webkit-user-select: none;
+
+        .ui-navbar-icon {
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .ui-navbar-text {
+            padding: 0 2px;
+            vertical-align: middle;
+        }
+
+    }
+
+    .ui-navbar-active {
+        font-weight: bold;
+    }
+
+}
+
+.ui-navbar-default {
+    background: #0e90d2;
+    color: white;
+    padding: 1px 8px;
+    line-height: 1;
+
+    .ui-navbar-item {
+        width: 75px;
+        height: 73px;
+        border: 1px dotted transparent;
+
+        .ui-navbar-icon {
+            display: block;
+            width: 48px;
+            height: 48px;
+            margin: 4px auto 0;
+        }
+
+        .ui-navbar-text {
+            padding-top: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .ui-navbar-active {
+        border-color: #EEE;
+        font-weight: normal;
+    }
+}
+
+.ui-navbar-line {
+    padding: 0 1px;
+    background: #EEEEEE;
+    color: #222;
+
+    .ui-navbar-item {
+        margin-right: 0;
+        padding: 5px 10px;
+        border-bottom: 2px solid transparent;
+
+        .ui-navbar-icon {}
+
+        .ui-navbar-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .ui-navbar-active {
+        background: #FCFCFC;
+        border-bottom-color: #0e90d2;
+        font-weight: normal;
+    }
+}
