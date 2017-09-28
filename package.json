@@ -1,7 +1,7 @@
 {
     "name": "designer",
     "version": "1.0.0",
-    "description": "",
+    "description": "Designer",
     "main": "index.js",
     "scripts": {
         "dev": "gulp dev && node app",
@@ -34,5 +34,9 @@
     },
     "dependencies": {
         "express": "^4.15.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shixia226/designer.git"
     }
 }
